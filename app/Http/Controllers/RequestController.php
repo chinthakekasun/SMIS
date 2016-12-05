@@ -48,6 +48,18 @@ class RequestController extends Controller
 		}
     }
 
+    public function noticeReq()
+    {
+        $notices = DB::table('notices')
+                 ->orderBy('id', 'desc')
+                 ->where('approval','false')
+                 ->paginate(5);
+        $num_notices = count($notices);
+
+        $title = 'New Notices';
+        return view('director.notice_requests')->with(compact('title', 'notices', 'num_notices'));
+    }
+
     public function publish($id)
     {
     	DB::table('notices')

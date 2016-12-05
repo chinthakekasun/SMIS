@@ -247,3 +247,7 @@ Route::get('groundReject/{id}',[
 Route::get('confirmedapp','EntryformController@confirmedApp');
 
 Route::post('playermessage','MailController@sendMessage');
+
+Route::get('notice_requests','RequestController@noticeReq');
+
+
